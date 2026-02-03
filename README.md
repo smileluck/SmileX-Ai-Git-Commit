@@ -286,8 +286,6 @@ smilex-git-commit/
 
 - **项目链接**：https://github.com/smileluck/SmileX-Ai-Git-Commit
 - **问题反馈**：https://github.com/smileluck/SmileX-Ai-Git-Commit/issues
-- **作者**：Your Name
-- **邮箱**：your.email@example.com
 
 ## 致谢
 
