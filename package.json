@@ -1,0 +1,62 @@
+{
+  "name": "smilex-git-commit",
+  "displayName": "Git Commit Assistant",
+  "version": "1.0.0",
+  "description": "智能分析代码变更并生成符合规范的git提交消息",
+  "main": "dist/extension.js",
+  "scripts": {
+    "compile": "tsc -p .",
+    "watch": "tsc -watch -p ."
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:smilex-git-commit.analyze",
+    "onCommand:smilex-git-commit.commit"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "smilex-git-commit.analyze",
+        "title": "Analyze Git Changes"
+      },
+      {
+        "command": "smilex-git-commit.commit",
+        "title": "Commit with Generated Message"
+      }
+    ],
+    "menus": {
+      "scm/title": [
+        {
+          "command": "smilex-git-commit.analyze",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Git Commit Assistant",
+      "properties": {
+        "smilex-git-commit.commitTemplate": {
+          "type": "string",
+          "default": "${type}(${scope}): ${subject}",
+          "description": "提交消息模板"
+        },
+        "smilex-git-commit.aiEnabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "启用AI消息生成"
+        }
+      }
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.0.0"
+  }
+}
