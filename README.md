@@ -36,12 +36,12 @@ Git Commit Assistant 是一个专为 Trae 开发的插件，旨在简化 git 提
 
 1. **克隆仓库**
    ```bash
-   git clone https://github.com/yourusername/smilex-git-commit.git
+   git clone https://github.com/smileluck/SmileX-Ai-Git-Commit.git
    ```
 
 2. **进入目录**
    ```bash
-   cd smilex-git-commit
+   cd SmileX-Ai-Git-Commit
    ```
 
 3. **安装依赖**
@@ -66,6 +66,119 @@ Git Commit Assistant 是一个专为 Trae 开发的插件，旨在简化 git 提
    - 选择 "从 VSIX 安装..."
    - 浏览并选择生成的 `.vsix` 文件
    - 点击 "安装"
+
+## 上传插件到插件库
+
+### 准备工作
+
+1. **安装 vsce 工具**（如果尚未安装）
+   ```bash
+   npm install -g vsce
+   ```
+
+2. **创建插件发布者账号**
+   - 访问 https://marketplace.visualstudio.com/manage/createpublisher
+   - 登录并创建发布者账号
+   - 记录发布者 ID
+
+3. **更新 package.json 文件**
+   - 添加 `publisher` 字段，设置为你的发布者 ID
+   - 确保 `name` 字段是唯一的
+   - 检查版本号是否正确
+
+### 上传步骤
+
+1. **登录到插件市场**
+   ```bash
+   vsce login <publisher-id>
+   ```
+   按照提示输入个人访问令牌
+
+2. **打包插件**
+   ```bash
+   vsce package
+   ```
+
+3. **发布插件**
+   ```bash
+   vsce publish
+   ```
+   或指定版本发布
+   ```bash
+   vsce publish <version>
+   ```
+
+4. **验证发布**
+   - 访问 https://marketplace.visualstudio.com/manage/publishers/<publisher-id>
+   - 确认插件已成功发布
+   - 等待插件市场索引更新（通常需要几分钟）
+
+### 发布注意事项
+
+- **版本号**：遵循语义化版本规范（Major.Minor.Patch）
+- **插件图标**：建议添加 `icon` 字段到 package.json 并提供 128x128px 的图标
+- **README 格式**：确保 README.md 格式正确，包含必要的信息
+- **许可证**：确保已添加正确的许可证文件
+- **测试**：在发布前充分测试插件功能
+
+## 本地开发与测试
+
+### 开发模式
+
+1. **克隆仓库**（如果尚未克隆）
+   ```bash
+   git clone https://github.com/smileluck/SmileX-Ai-Git-Commit.git
+   cd SmileX-Ai-Git-Commit
+   ```
+
+2. **安装依赖**
+   ```bash
+   npm install
+   ```
+
+3. **启动监视模式**
+   ```bash
+   npm run watch
+   ```
+
+4. **在 Trae 中加载开发版本**
+   - 打开 Trae
+   - 按下 `Ctrl+Shift+P` 打开命令面板
+   - 输入并选择 "Extensions: Install from VSIX..."
+   - 选择生成的 `.vsix` 文件
+   - 或使用 "Extensions: Reload Window" 重新加载窗口以应用更改
+
+### 调试技巧
+
+- **使用 VS Code 调试**：在 VS Code 中打开项目，按 `F5` 启动调试会话
+- **查看输出**：在 Trae 的 "输出" 面板中选择 "Git Commit Assistant" 查看日志
+- **错误排查**：检查 Trae 的 "开发者工具" 控制台查看详细错误信息
+
+## 常见问题与解决方案
+
+### 安装问题
+
+**Q: 安装插件时出现 "Installation failed" 错误**
+A: 确保你使用的是最新版本的 Trae，并且插件版本与 Trae 版本兼容
+
+**Q: 从 VSIX 安装后插件不显示**
+A: 尝试重新加载 Trae 窗口（按下 `Ctrl+Shift+P` 并选择 "Developer: Reload Window"）
+
+### 上传问题
+
+**Q: 发布插件时出现 "Error: Failed to publish extension" 错误**
+A: 检查你的个人访问令牌是否有效，以及是否具有发布权限
+
+**Q: 插件在市场中搜索不到**
+A: 发布后需要等待几分钟时间让市场索引更新，然后再尝试搜索
+
+### 使用问题
+
+**Q: 插件命令不显示在命令面板中**
+A: 确保插件已正确激活，尝试重新加载窗口或重启 Trae
+
+**Q: 生成的提交消息不符合预期**
+A: 检查你的配置设置，确保 AI 功能已启用，并且代码变更有足够的信息供 AI 分析
 
 ## 使用方法
 
@@ -165,12 +278,12 @@ smilex-git-commit/
 
 ## 许可证
 
-本项目采用 MIT 许可证。详见 [LICENSE](LICENSE) 文件。
+本项目采用 Apache-2.0 许可证。详见 [LICENSE](LICENSE) 文件。
 
 ## 联系方式
 
-- **项目链接**：https://github.com/yourusername/smilex-git-commit
-- **问题反馈**：https://github.com/yourusername/smilex-git-commit/issues
+- **项目链接**：https://github.com/smileluck/SmileX-Ai-Git-Commit
+- **问题反馈**：https://github.com/smileluck/SmileX-Ai-Git-Commit/issues
 - **作者**：Your Name
 - **邮箱**：your.email@example.com
 
